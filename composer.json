@@ -1,0 +1,21 @@
+{
+    "name": "smsguru/client",
+    "description": "PHP Client for using SMSGuru's API",
+    "type": "library",
+    "homepage": "https://console.smsguru.co",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "SMS Guru",
+            "email": "mark@smsguru.co"
+        }
+    ],
+    "require": {
+        "nesbot/carbon": ">2.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "smsguru\\": "src/"
+        }
+    }
+}
