@@ -22,5 +22,5 @@ print_r($response);
 
 
 // Check sms count that can send in China
-$balance = $smsClient->balance(861);		
+$balance = $smsClient->balance('MYS');		
 print_r($balance);

@@ -9,13 +9,13 @@ class client {
 
 	protected $username;
 	protected $password;
-	protected $gateway_url = 'https://sms.360.my/gw/bulk360/v3_0/send.php';
-	// protected $gateway_url = 'http://localhost:81/gw/bulk360/v3_0/send.php';
-	protected $balance_url = 'https://sms.360.my/api/balance/v3_0/getBalance';
+	protected $gateway_url = 'https://console.smsguru.co/gw/smsguru/v3_0/send.php';
+	// protected $gateway_url = 'http://localhost:81/gw/smsguru/v3_0/send.php';
+	protected $balance_url = 'https://console.smsguru.co/api/balance/v3_0/getBalance';
 	// protected $balance_url = 'http://localhost:81/api/balance/v3_0/getBalance';
 
 	protected $ini_path = __DIR__ . "/data/token.ini";
-	protected $token_url = "https://sms.360.my/oauth/token";
+	protected $token_url = "https://console.smsguru.co/oauth/token";
 	protected $access_token;
 
 	public function __construct($username, $password) 
@@ -40,7 +40,7 @@ class client {
 		curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, 0);
 		$sentResult = curl_exec($ch);
 		if ($sentResult == FALSE) {
-			return 'Curl failed for sending sms to bulk360.. '.curl_error($ch);
+			return 'Curl failed for sending sms to smsguru.. '.curl_error($ch);
 		}
 		curl_close($ch);
 
@@ -67,7 +67,7 @@ class client {
 		curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, 0);
 		$balanceResult = curl_exec($ch);
 		if ($balanceResult == FALSE) {
-			return 'Curl failed for request balance from bulk360.. '.curl_error($ch);
+			return 'Curl failed for request balance from smsguru.. '.curl_error($ch);
 		}
 		curl_close($ch);
 
@@ -174,7 +174,7 @@ class client {
 
 		$sentResult = curl_exec($ch);
 		if ($sentResult == FALSE) {
-			return '{"code":500,"desc":"Server error, please contact support@360.my... ' . curl_error($ch) . '"}';
+			return '{"code":500,"desc":"Server error, please contact support@smsguru.co ... ' . curl_error($ch) . '"}';
 		}
 		curl_close($ch);
 
